@@ -1,0 +1,656 @@
+/* ===== Base Layout ===== */
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+  background-image: 
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.7)),
+    url('/background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* ===== Sidebar ===== */
+.sidebar {
+  width: 260px;
+  background: white;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #e2e8f0;
+  box-shadow: 4px 0 24px rgba(0,0,0,0.05);
+  z-index: 10;
+}
+
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 40px;
+  padding-left: 8px;
+}
+
+.sidebar-logo h2 {
+  font-size: 20px;
+  font-weight: 800;
+  color: #166534;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: transparent;
+  color: #475569;
+  font-weight: 600;
+  font-size: 15px;
+  transition: all 0.2s;
+  text-align: left;
+}
+
+.nav-item:hover {
+  background: #f0fdf4;
+  color: #16a34a;
+}
+
+.nav-item.active {
+  background: #166534;
+  color: white;
+  box-shadow: 0 4px 12px rgba(22, 101, 52, 0.3);
+}
+
+/* ===== Main Content Area ===== */
+.main-content {
+  flex: 1;
+  padding: 40px;
+  overflow-y: auto;
+  height: 100vh;
+}
+
+/* ===== Dashboard ===== */
+.dashboard-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.dashboard-header h1 {
+  font-size: 32px;
+  color: white;
+  font-weight: 800;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  margin-bottom: 8px;
+}
+
+.dashboard-header p {
+  color: #e2e8f0;
+  font-weight: 500;
+  margin-bottom: 32px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+.stat-card {
+  background: white;
+  padding: 24px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 10px 30px -10px rgba(0,0,0,0.2);
+}
+
+.stat-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+
+.stat-card h3 { font-size: 28px; font-weight: 800; color: #0f172a; line-height: 1; margin-bottom: 4px; }
+.stat-card p { font-size: 14px; color: #64748b; font-weight: 600; }
+
+.cta-banner {
+  background: linear-gradient(135deg, #166534, #15803d);
+  border-radius: 24px;
+  padding: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  margin-bottom: 40px;
+  box-shadow: 0 10px 30px -10px rgba(22, 101, 52, 0.5);
+}
+
+.cta-banner h2 { font-size: 24px; margin-bottom: 8px; }
+.cta-banner p { opacity: 0.9; margin-bottom: 20px; }
+
+.cta-icon { font-size: 80px; opacity: 0.5; }
+
+.recent-section h3 { color: white; font-size: 20px; margin-bottom: 20px; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
+
+.recent-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.recent-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.recent-card:hover { transform: translateY(-4px); }
+.recent-card img { width: 100%; height: 120px; object-fit: cover; }
+.recent-info { padding: 16px; }
+.recent-info h4 { font-size: 16px; color: #0f172a; margin-bottom: 4px; }
+.recent-info p { font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+.recent-info span { font-size: 12px; color: #94a3b8; }
+.text-green { color: #16a34a; }
+.text-red { color: #dc2626; }
+
+/* ===== Analyse Page Override (Home) ===== */
+.home-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+.hero h1 { color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
+.hero p { color: #e2e8f0; text-shadow: 0 1px 2px rgba(0,0,0,0.5); }
+
+/* ... [Keep your existing upload dropzone, tips section, and action bar CSS here] ... */
+.upload-section, .tips-section { background: white; border-radius: 20px; padding: 24px; box-shadow: 0 10px 40px -10px rgba(0,0,0,0.3); }
+.dropzone { border: 2px dashed #cbd5e1; border-radius: 16px; background: #f8fafc; padding: 60px 20px; text-align: center; cursor: pointer; min-height: 380px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.btn-choose { background: #c2410c; color: white; padding: 12px 32px; border-radius: 8px; font-weight: 600; border: none; cursor: pointer; }
+.main-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 24px; margin-top: 20px; }
+.tips-section h3 { margin-bottom: 20px; }
+.tip-item { display: flex; gap: 16px; margin-bottom: 20px; align-items: center; }
+.tip-icon { width: 40px; height: 40px; border-radius: 50%; background: #f0fdf4; display: flex; align-items: center; justify-content: center; }
+.action-bar { position: fixed; bottom: 0; left: 260px; width: calc(100% - 260px); background: white; padding: 16px 40px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 -4px 20px rgba(0,0,0,0.1); z-index: 10; }
+.btn-analyze { background: #166534; color: white; padding: 14px 32px; border-radius: 8px; font-weight: 700; border: none; cursor: pointer; }
+
+/* ===== Detailed Result View ===== */
+.detail-view {
+  max-width: 1100px;
+  margin: 0 auto;
+  animation: slideUp 0.5s ease-out;
+}
+
+.back-link {
+  background: transparent;
+  color: #e2e8f0;
+  font-weight: 600;
+  font-size: 15px;
+  margin-bottom: 24px;
+  cursor: pointer;
+  border: none;
+}
+.back-link:hover { color: white; }
+
+.detail-header {
+  display: flex;
+  gap: 32px;
+  background: white;
+  padding: 32px;
+  border-radius: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 10px 30px -10px rgba(0,0,0,0.2);
+}
+
+.detail-image-wrapper {
+  position: relative;
+  width: 300px;
+  flex-shrink: 0;
+}
+
+.detail-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+.health-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: white;
+}
+.bg-green { background: #16a34a; }
+.bg-red { background: #dc2626; }
+
+.detail-title-area h1 { font-size: 36px; color: #0f172a; margin-bottom: 12px; line-height: 1.1; }
+
+.confidence-pill {
+  display: inline-block;
+  background: #dc2626;
+  color: white;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.detail-desc { font-size: 16px; color: #475569; line-height: 1.6; }
+
+.detail-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.detail-card {
+  background: white;
+  padding: 32px;
+  border-radius: 24px;
+  box-shadow: 0 10px 30px -10px rgba(0,0,0,0.2);
+}
+
+.detail-card.full-width { grid-column: 1 / -1; }
+
+.detail-card h3 { font-size: 20px; color: #0f172a; margin-bottom: 16px; border-bottom: 2px solid #f1f5f9; padding-bottom: 12px; }
+.detail-card p { font-size: 16px; color: #475569; line-height: 1.7; }
+
+.action-list { display: flex; flex-direction: column; gap: 16px; }
+.action-item { display: flex; gap: 16px; align-items: flex-start; font-size: 15px; color: #334155; line-height: 1.5; }
+.action-check { background: #dcfce7; color: #16a34a; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0; }
+
+/* History Page */
+.history-container { max-width: 800px; margin: 0 auto; }
+.page-title { color: white; margin-bottom: 24px; font-size: 32px; }
+.history-list { display: flex; flex-direction: column; gap: 16px; }
+.history-item { background: white; padding: 16px; border-radius: 16px; display: flex; align-items: center; gap: 20px; cursor: pointer; transition: transform 0.2s; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+.history-item:hover { transform: translateX(4px); }
+.history-item img { width: 64px; height: 64px; border-radius: 12px; object-fit: cover; }
+.history-details h3 { font-size: 18px; margin-bottom: 4px; }
+.history-details p { font-size: 14px; color: #64748b; }
+.history-arrow { margin-left: auto; font-size: 20px; color: #cbd5e1; }
+
+/* Loading & Toasts */
+.loading-overlay { background: transparent; min-height: 80vh; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.spinner { width: 64px; height: 64px; border: 5px solid rgba(255,255,255,0.2); border-top-color: white; border-radius: 50%; animation: spin 0.8s linear infinite; margin-bottom: 24px; }
+.loading-step { color: white; font-size: 18px; font-weight: 600; margin-bottom: 12px; display: flex; align-items: center; gap: 12px; opacity: 0.5; }
+.loading-step.done, .loading-step.active { opacity: 1; }
+.error-toast { position: fixed; top: 24px; right: 24px; background: #fee2e2; color: #991b1b; padding: 16px; border-radius: 12px; z-index: 100; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+/* Fix dropzone text alignment */
+.dropzone-text { text-align: center; }
+.dropzone-text span { display: block; margin: 8px 0; }
+
+/* Better formatting for prevention list */
+.prevention-list {
+  color: #475569;
+  font-size: 16px;
+  line-height: 1.6;
+}
+/* ===== MOBILE RESPONSIVENESS ===== */
+@media (max-width: 768px) {
+  /* Stack the layout vertically */
+  .app-layout {
+    flex-direction: column;
+  }
+
+  /* Turn the sidebar into a bottom navigation bar */
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 12px 10px;
+    border-right: none;
+    border-top: 1px solid #e2e8f0;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+    z-index: 100;
+    border-radius: 20px 20px 0 0;
+  }
+
+  /* Hide the logo on mobile to save space */
+  .sidebar-logo {
+    display: none;
+  }
+
+  /* Make the nav items smaller and vertical */
+  .sidebar-nav {
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+    gap: 0;
+  }
+
+  .nav-item {
+    flex-direction: column;
+    gap: 6px;
+    padding: 8px 16px;
+    font-size: 12px;
+    border-radius: 12px;
+  }
+
+  .nav-item.active {
+    background: transparent;
+    color: #166534;
+    box-shadow: none;
+    font-weight: 800;
+  }
+  
+  .nav-item.active svg {
+    fill: #dcfce7;
+  }
+
+  /* Adjust main content to account for the bottom bar */
+  .main-content {
+    padding: 24px 16px 100px 16px; /* Extra bottom padding */
+    height: auto;
+    min-height: 100vh;
+  }
+
+  /* Stack grids on mobile */
+  .stats-grid, .main-grid, .detail-content {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Fix the "Analyse Plant" fixed bottom bar */
+  .action-bar {
+    left: 0;
+    width: 100%;
+    bottom: 75px; /* Sit above the new mobile nav bar */
+    border-radius: 0;
+    flex-direction: column;
+    gap: 12px;
+    padding: 12px 16px;
+  }
+
+  .action-bar-text {
+    display: none; /* Hide the helper text on mobile */
+  }
+  
+  .btn-analyze {
+    width: 100%;
+  }
+
+  /* Adjust Result Page Header for Mobile */
+  .detail-header {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .detail-image-wrapper {
+    width: 100%;
+  }
+
+  .detail-image {
+    height: 250px;
+  }
+
+  .detail-title-area h1 {
+    font-size: 28px;
+    margin-top: 16px;
+  }
+}
+.desktop-only {
+  display: flex;
+}
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none !important;
+  }
+}
+/* ===== Chat Interface ===== */
+.chat-window {
+  max-height: 250px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding-right: 8px;
+}
+
+.chat-bubble {
+  padding: 12px 16px;
+  border-radius: 16px;
+  font-size: 15px;
+  line-height: 1.5;
+  max-width: 85%;
+}
+
+.chat-bubble.user {
+  background: #166534;
+  color: white;
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+}
+
+.chat-bubble.assistant {
+  background: #f1f5f9;
+  color: #1e293b;
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
+}
+
+.chat-input-row {
+  display: flex;
+  gap: 12px;
+}
+
+.chat-input-row input {
+  flex: 1;
+  padding: 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  font-size: 15px;
+  outline: none;
+}
+
+.chat-input-row input:focus {
+  border-color: #16a34a;
+}
+
+.btn-send {
+  background: #166534;
+  color: white;
+  padding: 0 24px;
+  border-radius: 12px;
+  font-weight: 700;
+}
+.btn-send:disabled { opacity: 0.7; cursor: not-allowed; }
+
+.btn-export {
+  background: white;
+  color: #166534;
+  padding: 10px 16px;
+  border-radius: 12px;
+  font-weight: 700;
+  border: 1px solid #e2e8f0;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.print-only { display: none; }
+
+/* ===== PRINT STYLES (For PDF Export) ===== */
+@media print {
+  /* Hide the sidebar, buttons, and chat when saving to PDF */
+  .sidebar, .no-print, .action-bar {
+    display: none !important;
+  }
+  
+  .app-layout {
+    background: white !important;
+    display: block;
+  }
+  
+  .main-content {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .detail-view {
+    max-width: 100% !important;
+  }
+
+  .detail-header, .detail-card {
+    box-shadow: none !important;
+    border: 1px solid #cbd5e1 !important;
+    page-break-inside: avoid;
+  }
+
+  .detail-image-wrapper { width: 250px !important; }
+  .detail-image { height: 250px !important; }
+  
+  .detail-title-area h1 { color: black !important; }
+  .detail-desc { color: #334155 !important; }
+
+  .print-only { display: block !important; }
+}
+/* ===== Floating Chatbot ===== */
+.chatbot-fab {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #166534;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px -5px rgba(22, 101, 52, 0.5);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 9999;
+  border: none;
+  cursor: pointer;
+}
+
+.chatbot-fab:hover {
+  transform: scale(1.05) translateY(-2px);
+  box-shadow: 0 15px 30px -5px rgba(22, 101, 52, 0.6);
+}
+
+.chatbot-window {
+  position: fixed;
+  bottom: 96px;
+  right: 24px;
+  width: 350px;
+  height: 500px;
+  background: white;
+  border-radius: 24px;
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  z-index: 9999;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  animation: slideUp 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.chatbot-header {
+  background: #f8fafc;
+  padding: 16px;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.close-chat {
+  background: transparent;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chatbot-messages {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.chatbot-input {
+  padding: 12px;
+  border-top: 1px solid #e2e8f0;
+  display: flex;
+  gap: 8px;
+  background: white;
+}
+
+.chatbot-input input {
+  flex: 1;
+  padding: 10px 16px;
+  border: 1px solid #cbd5e1;
+  border-radius: 20px;
+  outline: none;
+  font-size: 14px;
+}
+
+.chatbot-input input:focus {
+  border-color: #16a34a;
+}
+
+.chatbot-input button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #166534;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.chatbot-input button:disabled {
+  background: #cbd5e1;
+}
+
+/* Mobile responsiveness for Chatbot */
+@media (max-width: 768px) {
+  .chatbot-window {
+    width: calc(100% - 32px);
+    left: 16px;
+    right: 16px;
+    bottom: 96px; /* Sits above the bottom nav bar */
+    height: 60vh;
+  }
+  
+  .chatbot-fab {
+    bottom: 90px; /* Sits above the mobile bottom nav */
+    right: 16px;
+    width: 56px;
+    height: 56px;
+  }
+}

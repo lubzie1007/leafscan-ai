@@ -1,0 +1,19 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+*.h5
+debug_uploads/
+
+# React / Node
+frontend/node_modules/
+frontend/dist/
+
+# Environment Variables (KEEP SECRET!)
+.env
+.env.local
+
+# Large Data & Models
+data/
+models/
+*.zip
